@@ -8,10 +8,10 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 		<div className="flex min-h-screen w-full flex-col bg-background text-foreground transition-colors duration-300">
 			<HeaderBar />
 
-			<div className="flex flex-1">
+			<div className="flex h-screen">
 				<SideBar />
 
-				<main className="col-span-2 mt-3 flex-1 p-4 md:ml-10 md:p-8">
+				<main className="mt-3 mobile_s:ml-0 tablet:ml-[100px] flex-1 p-4">
 					{children}
 				</main>
 			</div>

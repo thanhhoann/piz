@@ -1,4 +1,5 @@
 import {
+	Badge,
 	Button,
 	Drawer,
 	DrawerContent,
@@ -8,6 +9,7 @@ import {
 	DrawerTitle,
 	Textarea,
 } from "@components/atoms";
+import useFetchUser from "@hooks/useFetchUser";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { cn } from "@utils/cn";
 import { HashIcon, ImageIcon, MenuIcon } from "lucide-react";
@@ -19,6 +21,7 @@ export default function SideBarMobileDrawer({
 }: { isOpen: boolean; setOpen: (isOpen: boolean) => void }) {
 	const [value, setValue] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+	const { user, loading, error } = useFetchUser();
 
 	const mid_threshold = 500;
 	const last_threshold = 550;
@@ -64,7 +67,7 @@ export default function SideBarMobileDrawer({
 						</Avatar>
 
 						<div className="flex w-full flex-col gap-2">
-							{/* <Badge className="w-fit">{user?.username}</Badge> */}
+							<Badge className="w-fit">{user?.email}</Badge>
 
 							{/* form */}
 							<div className="w-full flex-start flex-col gap-2">

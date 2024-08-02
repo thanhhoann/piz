@@ -1,7 +1,7 @@
-import { signIn, signUp } from "@services/auth-service";
-import { SubmitButton } from "../../components/molecules/submit-button";
+import { SubmitButton } from "@components/molecules";
+import { signUp } from "@services/auth-service";
 
-export default function Login({
+export default function SignUpPage({
 	searchParams,
 }: {
 	searchParams: { message: string };
@@ -9,6 +9,17 @@ export default function Login({
 	return (
 		<div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
 			<form className="flex w-full flex-1 flex-col justify-center gap-2 text-foreground">
+				{/* username */}
+				<label className="text-md" htmlFor="username">
+					Username
+				</label>
+				<input
+					className="mb-6 rounded-md border bg-inherit px-4 py-2"
+					name="username"
+					placeholder=""
+					required
+				/>
+				{/* email */}
 				<label className="text-md" htmlFor="email">
 					Email
 				</label>
@@ -18,6 +29,7 @@ export default function Login({
 					placeholder=""
 					required
 				/>
+				{/* password */}
 				<label className="text-md" htmlFor="password">
 					Password
 				</label>
@@ -28,13 +40,7 @@ export default function Login({
 					placeholder=""
 					required
 				/>
-				<SubmitButton
-					formAction={signIn}
-					className="mb-2 rounded-md bg-green-700 px-4 py-2 text-foreground"
-					pendingText="Signing in ..."
-				>
-					Sign In
-				</SubmitButton>
+				{/* button */}
 				<SubmitButton
 					formAction={signUp}
 					className="mb-2 rounded-md border border-foreground/20 px-4 py-2 text-foreground"

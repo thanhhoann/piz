@@ -6,8 +6,8 @@ import { createSupabaseClientWithCookies } from "@utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-// TODO: add all auth routes here
 const SIGN_IN = "/login";
+const PROTECTED = "/protected";
 
 export const signIn = async (formData: FormData) => {
 	"use server";
@@ -21,10 +21,10 @@ export const signIn = async (formData: FormData) => {
 	});
 
 	if (error) {
-		return redirect("/login?message=Could not authenticate user");
+		return redirect(`${SIGN_IN}?message=Could not authenticate user`);
 	}
 
-	return redirect("/protected");
+	return redirect(PROTECTED);
 };
 
 export const signUp = async (formData: FormData) => {
@@ -43,17 +43,24 @@ export const signUp = async (formData: FormData) => {
 	});
 
 	if (error) {
-		return redirect("/login?message=Could not authenticate user");
+		return redirect(`${SIGN_IN}?message=Could not authenticate user`);
 	}
 
-	return redirect(
-		"/login?message=Check email to continue sign in process",
-	);
+	return redirect(SIGN_IN);
 };
 
 export const signOut = async () => {
 	"use server";
 	const supabase = createSupabaseClientWithCookies();
 	await supabase.auth.signOut();
-	return redirect("/login");
+	return redirect(SIGN_IN);
+};
+
+export const fetchUser = async () => {
+	"use server";
+	const supabase = createSupabaseClientWithCookies();
+	const {
+		data: { user },
+	} = await supabase.auth.getUser();
+	return user;
 };

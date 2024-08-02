@@ -25,6 +25,10 @@ export default function SideBarItems({
 				: "black"
 			: "none";
 
+	const handleSelect = (iconLabel) => {
+		iconSelect(iconLabel);
+	};
+
 	return (
 		<>
 			{SIDE_BAR_ITEMS.map((item, index) => {
@@ -48,18 +52,19 @@ export default function SideBarItems({
 
 				return (
 					<>
-						<Link
+						{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+						<div
 							key={ICON_LABELS[index]}
-							href={item.href ?? "#"}
 							className="dark:hover:background-item flex items-center gap-3 rounded-md p-4 font-medium text-sm transition-colors hover:bg-muted"
-							onClick={() => iconSelect(ICON_LABELS[index])}
-							prefetch={false}
+							onClick={() => handleSelect(ICON_LABELS[index])}
 						>
-							<item.icon
-								size={SIDE_BAR_ITEMS_ICON_SIZE}
-								fill={iconFill(ICON_LABELS[index])}
-							/>
-						</Link>
+							<Link href={item.href ?? "#"} prefetch={false}>
+								<item.icon
+									size={SIDE_BAR_ITEMS_ICON_SIZE}
+									fill={iconFill(ICON_LABELS[index])}
+								/>
+							</Link>
+						</div>
 					</>
 				);
 			})}

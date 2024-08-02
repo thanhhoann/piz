@@ -32,7 +32,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			suppressHydrationWarning
+			suppressHydrationWarning={true}
 			className={`${geist_sans.variable}${geist_mono.variable}`}
 		>
 			<body className="bg-background text-foreground">

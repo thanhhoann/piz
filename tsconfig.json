@@ -27,8 +27,8 @@
 			"@utils/*": ["./utils/*"],
 			"@models/*": ["./models/*"],
 			"@services/*": ["./services/*"],
-			"@layouts/*": ["./layouts/*"],
-			"@providers/*": ["./providers/*"]
+			"@providers/*": ["./providers/*"],
+			"@hooks/*": ["./hooks/*"]
 		}
 	},
 	"include": [

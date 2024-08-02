@@ -11,6 +11,7 @@ export * from "./dropdown-menu";
 export * from "./icons";
 export * from "./label";
 export * from "./sheet";
+export * from "./input";
 export * from "./textarea";
 export * from "./skeleton";
 export * from "./toast";

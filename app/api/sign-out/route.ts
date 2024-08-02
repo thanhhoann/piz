@@ -1,13 +1,15 @@
 import { signOut } from "@services/auth-service";
-import { type NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST() {
 	try {
 		await signOut();
-		return NextResponse.json({ message: "Signed out successfully" });
+		return NextResponse.json({
+			message: "User signed out successfully",
+		});
 	} catch (error) {
 		return NextResponse.json(
-			{ error: "Failed to sign out" },
+			{ error: `Error while signing out: ${error}` },
 			{ status: 500 },
 		);
 	}

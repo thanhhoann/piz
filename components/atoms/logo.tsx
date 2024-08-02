@@ -4,9 +4,9 @@ import Link from "next/link";
 const Logo = ({ className }: { className?: string }) => {
 	return (
 		<>
-			<Link href={ROUTE.HOME}>
-				<div className={className}>piz</div>
-			</Link>
+			<div className={className}>
+				<Link href={ROUTE.HOME}>piz</Link>
+			</div>
 		</>
 	);
 };
