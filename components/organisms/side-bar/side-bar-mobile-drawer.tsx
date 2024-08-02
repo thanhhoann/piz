@@ -7,9 +7,9 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 	Textarea,
-} from "@components/ui/common";
-import { cn } from "@utils/cn";
+} from "@components/atoms";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
+import { cn } from "@utils/cn";
 import { HashIcon, ImageIcon, MenuIcon } from "lucide-react";
 import React from "react";
 

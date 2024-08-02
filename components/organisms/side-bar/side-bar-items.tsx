@@ -1,6 +1,7 @@
-import SideBarMobileDrawer from "@components/ui/app-layout/side-bar-mobile-drawer";
-import { Button } from "@components/ui/common";
-import { ROUTE } from "@utils/route";
+"use client";
+import { Button } from "@components/atoms";
+import SideBarMobileDrawer from "@components/organisms/side-bar/side-bar-mobile-drawer";
+import { ROUTE } from "@constants/route";
 import { Heart, House, Plus, Search, User } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";

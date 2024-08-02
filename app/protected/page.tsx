@@ -1,9 +1,8 @@
-import AuthButton from "@components/auth/auth-button";
-import { createClient } from "@utils/supabase/server";
+import { createSupabaseClientWithCookies } from "@utils/supabase/server";
 import { redirect } from "next/navigation";
 
 export default async function ProtectedPage() {
-	const supabase = createClient();
+	const supabase = createSupabaseClientWithCookies();
 
 	const {
 		data: { user },
@@ -22,7 +21,7 @@ export default async function ProtectedPage() {
 				</div>
 				<nav className="flex h-16 w-full justify-center border-b border-b-foreground/10">
 					<div className="flex w-full max-w-4xl items-center justify-between p-3 text-sm">
-						<AuthButton />
+						{/* <AuthButton /> */}
 					</div>
 				</nav>
 			</div>

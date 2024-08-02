@@ -1,4 +1,4 @@
-import { ROUTE } from "@utils/route";
+import { ROUTE } from "@constants/route";
 import Link from "next/link";
 
 const Logo = ({ className }: { className?: string }) => {

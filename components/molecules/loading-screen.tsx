@@ -2,9 +2,7 @@
 import GlibberishText from "@components/animations/glibberish-text";
 import React from "react";
 
-export default function LoadingScreen({
-	duration,
-}: { duration: number }) {
+const LoadingScreen = ({ duration }: { duration: number }) => {
 	const [show, setShow] = React.useState(true);
 
 	React.useEffect(() => {
@@ -29,4 +27,6 @@ export default function LoadingScreen({
 			/>
 		</div>
 	);
-}
+};
+
+export { LoadingScreen };

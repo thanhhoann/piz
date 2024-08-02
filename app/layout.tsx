@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
-import "./globals.css";
-import { ThemeProvider } from "@components/theme/theme-provider";
-import AppLayout from "@components/ui/app-layout";
-import LoadingScreen from "@components/ui/special/loading-screen";
+import "@styles/globals.css";
+import { LoadingScreen } from "@components/molecules";
+import { AppLayout } from "@components/templates";
+import { ThemeProvider } from "@providers/theme-provider";
 
 const geist_sans = localFont({
 	src: "../assets/fonts/GeistVF.woff",
@@ -20,9 +20,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
 	metadataBase: new URL(defaultUrl),
-	title: "Next.js and Supabase Starter Kit",
-	description:
-		"The fastest way to build apps with Next.js and Supabase",
+	title: "Piz",
+	description: "An experimental social media platform. WIP.",
 };
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-import SideBarItems from "@components/ui/app-layout/side-bar-items";
+import SideBarItems from "@components/organisms/side-bar/side-bar-items";
 
 export default function MobileSideBar() {
 	return (

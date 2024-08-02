@@ -1,4 +1,5 @@
-import { Button } from "@components/ui/common/button";
+"use client";
+import { Button } from "@components/atoms";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -59,4 +60,4 @@ const ThemeToggle = ({
 	);
 };
 
-export default ThemeToggle;
+export { ThemeToggle };

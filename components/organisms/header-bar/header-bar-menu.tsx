@@ -1,4 +1,4 @@
-import ThemeToggle from "@components/theme/theme-toggle";
+"use client";
 import {
 	Button,
 	DropdownMenu,
@@ -7,9 +7,10 @@ import {
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@components/ui/common";
+} from "@components/atoms";
+import { ThemeToggle } from "@components/molecules";
+import { ROUTE } from "@constants/route";
 import { cn } from "@utils/cn";
-import { ROUTE } from "@utils/route";
 import {
 	Archive,
 	LogOut,
@@ -18,15 +19,11 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const iconClass = "mr-2 h-4 w-4";
 
 const items = [
-	// {
-	// 	href: "#",
-	// 	label: "Liked posts",
-	// 	icon: <BookHeart className={iconClass} />,
-	// },
 	{
 		href: ROUTE.SAVED_POSTS,
 		label: "Saved posts",
@@ -39,12 +36,28 @@ const items = [
 	},
 ];
 
-export default function TopBarMenu() {
+export default function HeaderBarMenu() {
 	const { theme, setTheme } = useTheme();
+	const router = useRouter();
 	const dropdownMenuItemClass = cn(
 		"cursor-pointer",
 		theme === "dark" ? "dark-common" : "light-common",
 	);
+
+	const handleSignOut = async () => {
+		try {
+			const response = await fetch("/api/sign-out", {
+				method: "POST",
+			});
+			if (response.ok) {
+				router.push("/login"); // Redirect to login page or any other page
+			} else {
+				console.error("Failed to sign out");
+			}
+		} catch (error) {
+			console.error("An error occurred during sign out", error);
+		}
+	};
 
 	return (
 		<>
@@ -61,8 +74,8 @@ export default function TopBarMenu() {
 					)}
 				>
 					<DropdownMenuGroup>
-						{items.map(({ href, icon, label }) => (
-							<Link key={href} href={href}>
+						{items.map(({ href, icon, label }, index) => (
+							<Link key={href + index.toString()} href={href}>
 								<DropdownMenuItem
 									key={label}
 									className={dropdownMenuItemClass}
@@ -88,7 +101,10 @@ export default function TopBarMenu() {
 						/>
 					</DropdownMenuItem>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem className={dropdownMenuItemClass}>
+					<DropdownMenuItem
+						className={dropdownMenuItemClass}
+						onClick={handleSignOut}
+					>
 						{/* <SignOutButton> */}
 						<div className="flex w-full items-center">
 							<LogOut className={iconClass} />
