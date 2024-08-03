@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "@styles/globals.css";
-import { LoadingScreen } from "@components/molecules";
 import { AppLayout } from "@components/templates";
 import { ThemeProvider } from "@providers/theme-provider";
 
@@ -42,7 +41,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<LoadingScreen duration={600} />
+					{/* <LoadingScreen duration={600} /> */}
 					<AppLayout>{children}</AppLayout>
 				</ThemeProvider>
 			</body>

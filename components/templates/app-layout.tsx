@@ -1,6 +1,5 @@
 import HeaderBar from "@components/organisms/header-bar";
 import SideBar from "@components/organisms/side-bar";
-import MobileSideBar from "@components/organisms/side-bar/side-bar-mobile";
 import type React from "react";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
@@ -15,8 +14,6 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 					{children}
 				</main>
 			</div>
-
-			<MobileSideBar />
 		</div>
 	);
 };

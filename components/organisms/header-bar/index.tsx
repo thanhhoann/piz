@@ -3,7 +3,7 @@ import HeaderBarLogo from "@components/organisms/header-bar/header-bar-logo";
 import HeaderBarMenu from "@components/organisms/header-bar/header-bar-menu";
 import HeaderBarNavigation from "@components/organisms/header-bar/header-bar-navigation";
 
-export default async function HeaderBar() {
+export default function HeaderBar() {
 	return (
 		<>
 			<header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b px-4 transition-colors duration-300">

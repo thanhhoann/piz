@@ -7,6 +7,7 @@ import {
 	DrawerFooter,
 	DrawerHeader,
 	DrawerTitle,
+	DrawerTrigger,
 	Textarea,
 } from "@components/atoms";
 import useFetchUser from "@hooks/useFetchUser";
@@ -18,7 +19,12 @@ import React from "react";
 export default function SideBarMobileDrawer({
 	isOpen,
 	setOpen,
-}: { isOpen: boolean; setOpen: (isOpen: boolean) => void }) {
+	children,
+}: {
+	isOpen: boolean;
+	setOpen: (isOpen: boolean) => void;
+	children: React.ReactNode;
+}) {
 	const [value, setValue] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 	const { user, loading, error } = useFetchUser();
@@ -50,6 +56,8 @@ export default function SideBarMobileDrawer({
 	return (
 		<>
 			<Drawer open={isOpen} onOpenChange={setOpen}>
+				<DrawerTrigger>{children}</DrawerTrigger>
+
 				<DrawerContent className="h-[90vh] bg-background-item dark:bg-background-item">
 					{/* header */}
 					<DrawerHeader>

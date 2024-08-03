@@ -2,7 +2,7 @@ export type RouteProps = {
 	HOME: string;
 	SIGN_IN: string;
 	SIGN_UP: string;
-	PROFILE?: string;
+	PROFILE: string;
 	SEARCH: string;
 	ACTIVITY: string;
 	SAVED_POSTS: string;
