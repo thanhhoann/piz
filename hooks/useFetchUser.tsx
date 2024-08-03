@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 
 type User = {
 	email: string;
+	user_metadata?: {
+		user_name?: string;
+	};
 };
 
 const useFetchUser = () => {

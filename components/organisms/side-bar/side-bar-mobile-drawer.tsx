@@ -53,6 +53,8 @@ export default function SideBarMobileDrawer({
 		}
 	}, [value]);
 
+	console.log(user);
+
 	return (
 		<>
 			<Drawer open={isOpen} onOpenChange={setOpen}>
@@ -75,7 +77,9 @@ export default function SideBarMobileDrawer({
 						</Avatar>
 
 						<div className="flex w-full flex-col gap-2">
-							<Badge className="w-fit">{user?.email}</Badge>
+							<Badge className="w-fit">
+								{user?.user_metadata?.user_name}
+							</Badge>
 
 							{/* form */}
 							<div className="w-full flex-start flex-col gap-2">

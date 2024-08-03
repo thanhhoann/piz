@@ -50,7 +50,7 @@ export default function HeaderBarMenu() {
 				method: "POST",
 			});
 			if (response.ok) {
-				router.push("/sign-in"); // Redirect to login page or any other page
+				router.push(ROUTE.SIGN_IN);
 			} else {
 				console.error("Failed to sign out");
 			}

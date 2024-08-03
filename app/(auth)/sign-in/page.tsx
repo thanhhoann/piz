@@ -19,7 +19,7 @@ export default function SignInPage({
 	return (
 		<Card className="mx-auto max-w-sm border-none">
 			<CardHeader>
-				<CardTitle className="text-2xl">Login</CardTitle>
+				<CardTitle className="text-2xl">Sign in</CardTitle>
 				<CardDescription>
 					Enter your email and password to sign in
 				</CardDescription>
@@ -42,6 +42,9 @@ export default function SignInPage({
 						</div>
 						<div className="grid gap-2">
 							<div className="flex items-center">
+								<label className="text-md" htmlFor="password">
+									Password
+								</label>
 								<Link
 									href="#"
 									className="ml-auto inline-block text-sm underline"
@@ -49,9 +52,6 @@ export default function SignInPage({
 									Forgot your password?
 								</Link>
 							</div>
-							<label className="text-md" htmlFor="password">
-								Password
-							</label>
 							<Input
 								id="password"
 								name="password"
@@ -61,11 +61,10 @@ export default function SignInPage({
 						</div>
 						<SubmitButton
 							formAction={signIn}
-							className="mb-2 rounded-md bg-white px-4 py-2 text-black text-foreground"
+							className="mb-2 rounded-md bg-white px-4 py-2 text-black"
 							pendingText="Signing in ..."
-						>
-							Sign In
-						</SubmitButton>
+							placeholder="Sign in"
+						/>
 					</div>
 					<div className="mt-4 text-center text-sm">
 						Don&apos;t have an account?{" "}
@@ -75,9 +74,9 @@ export default function SignInPage({
 					</div>
 
 					{searchParams?.message && (
-						<p className="mt-4 bg-foreground/10 p-4 text-center text-foreground">
-							{searchParams.message}
-						</p>
+						<div className="mt-4 max-w-full rounded-md border-2 border-red-700 p-4 text-center text-foreground">
+							<p>{searchParams.message}</p>
+						</div>
 					)}
 				</form>
 			</CardContent>

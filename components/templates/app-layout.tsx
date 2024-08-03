@@ -1,8 +1,18 @@
 import HeaderBar from "@components/organisms/header-bar";
 import SideBar from "@components/organisms/side-bar";
+import { createSupabaseClientWithCookies } from "@utils/supabase/server";
 import type React from "react";
 
-const AppLayout = ({ children }: { children: React.ReactNode }) => {
+const AppLayout = async ({
+	children,
+}: { children: React.ReactNode }) => {
+	const supabase = createSupabaseClientWithCookies();
+	const {
+		data: { user },
+	} = await supabase.auth.getUser();
+
+	if (!user) return <>{children}</>;
+
 	return (
 		<div className="flex min-h-screen w-full flex-col bg-background text-foreground transition-colors duration-300">
 			<HeaderBar />
