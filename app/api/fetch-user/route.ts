@@ -1,4 +1,4 @@
-import { fetchUser } from "@services/auth-service";
+import { fetchUser } from "@services/user-data/user-general";
 import { NextResponse } from "next/server";
 
 export async function POST() {

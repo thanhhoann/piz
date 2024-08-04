@@ -1,6 +1,7 @@
+import { Avatar, AvatarFallback } from "@components/atoms/avatar";
+import { Badge } from "@components/atoms/badge";
+import { Button } from "@components/atoms/button";
 import {
-	Badge,
-	Button,
 	Drawer,
 	DrawerContent,
 	DrawerDescription,
@@ -8,10 +9,9 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 	DrawerTrigger,
-	Textarea,
-} from "@components/atoms";
+} from "@components/atoms/drawer";
+import { Textarea } from "@components/atoms/textarea";
 import useFetchUser from "@hooks/useFetchUser";
-import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { cn } from "@utils/cn";
 import { HashIcon, ImageIcon, MenuIcon } from "lucide-react";
 import React from "react";

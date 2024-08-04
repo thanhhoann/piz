@@ -4,12 +4,12 @@ import {
 	CardDescription,
 	CardHeader,
 	CardTitle,
-	Input,
-	Label,
-} from "@components/atoms";
+} from "@components/atoms/card";
+import { Input } from "@components/atoms/input";
+import { Label } from "@components/atoms/label";
 import { SubmitButton } from "@components/molecules";
 import { ROUTE } from "@constants/route";
-import { signUp } from "@services/auth-service";
+import { signUp } from "@services/auth/sign-up";
 import Link from "next/link";
 
 export default function SignUpPage({

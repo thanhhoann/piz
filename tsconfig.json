@@ -28,7 +28,8 @@
 			"@models/*": ["./models/*"],
 			"@services/*": ["./services/*"],
 			"@providers/*": ["./providers/*"],
-			"@hooks/*": ["./hooks/*"]
+			"@hooks/*": ["./hooks/*"],
+			"@radix-ui/*": ["./non-existent-folder/*"]
 		}
 	},
 	"include": [
@@ -37,5 +38,5 @@
 		"**/*.tsx",
 		".next/types/**/*.ts"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "node_modules/@radix-ui/**"]
 }

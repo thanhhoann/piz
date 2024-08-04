@@ -1,3 +1,4 @@
+import { SUPABASE } from "@constants/dot-env";
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -13,10 +14,10 @@ export const updateSession = async (request: NextRequest) => {
 		});
 
 		const supabase = createServerClient(
-			// biome-ignore lint/style/noNonNullAssertion: i dunno anything about supabase builtin function
-			process.env.NEXT_PUBLIC_SUPABASE_URL!,
-			// biome-ignore lint/style/noNonNullAssertion: i dunno anything about supabase builtin function
-			process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+			// biome-ignore lint/style/noNonNullAssertion: I dunno anything about supabase builtin function
+			SUPABASE.URL!,
+			// biome-ignore lint/style/noNonNullAssertion: I dunno anything about supabase builtin function
+			SUPABASE.ANON_KEY!,
 			{
 				cookies: {
 					getAll() {

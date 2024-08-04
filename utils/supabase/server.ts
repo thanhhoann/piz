@@ -1,3 +1,4 @@
+import { SUPABASE } from "@constants/dot-env";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
@@ -5,15 +6,16 @@ export const createSupabaseClientWithCookies = () => {
 	const cookieStore = cookies();
 
 	return createServerClient(
-		// biome-ignore lint/style/noNonNullAssertion: i dunno anything about supabase builtin function
-		process.env.NEXT_PUBLIC_SUPABASE_URL!,
-		// biome-ignore lint/style/noNonNullAssertion: i dunno anything about supabase builtin function
-		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+		// biome-ignore lint/style/noNonNullAssertion: I dunno anything about supabase builtin function
+		SUPABASE.URL!,
+		// biome-ignore lint/style/noNonNullAssertion: I dunno anything about supabase builtin function
+		SUPABASE.ANON_KEY!,
 		{
 			cookies: {
 				getAll() {
 					return cookieStore.getAll();
 				},
+				// biome-ignore lint/suspicious/noExplicitAny: I dunno anything about cookiesToSet
 				setAll(cookiesToSet: any) {
 					try {
 						for (const { name, value, options } of cookiesToSet) {

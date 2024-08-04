@@ -1,5 +1,5 @@
 "use client";
-import { Logo } from "@components/atoms";
+import { Logo } from "@components/atoms/logo";
 import { cn } from "@utils/cn";
 import { usePathname } from "next/navigation";
 

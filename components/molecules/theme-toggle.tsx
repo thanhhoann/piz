@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@components/atoms";
+import { Button } from "@components/atoms/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";

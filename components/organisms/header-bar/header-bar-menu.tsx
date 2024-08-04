@@ -1,13 +1,13 @@
 "use client";
+import { Button } from "@components/atoms/button";
 import {
-	Button,
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@components/atoms";
+} from "@components/atoms/dropdown-menu";
 import { ThemeToggle } from "@components/molecules";
 import { ROUTE } from "@constants/route";
 import { cn } from "@utils/cn";
