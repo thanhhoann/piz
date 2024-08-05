@@ -1,15 +1,14 @@
-import type { Route } from "next";
+import type { Route } from "next"
 
 export type RouteProps = {
-	HOME: Route;
-	SIGN_IN: Route;
-	SIGN_UP: Route;
-	PROFILE: Route;
-	SEARCH: Route;
-	ACTIVITY: Route;
-	SAVED_POSTS: Route;
-	SETTINGS: Route;
-};
+	HOME: Route
+	SIGN_IN: Route
+	SIGN_UP: Route
+	SEARCH: Route
+	ACTIVITY: Route
+	SAVED_POSTS: Route
+	SETTINGS: Route
+}
 
 export const ROUTE: RouteProps = {
 	HOME: "/" as Route,
@@ -19,5 +18,4 @@ export const ROUTE: RouteProps = {
 	ACTIVITY: "/activity" as Route,
 	SAVED_POSTS: "/saved_posts" as Route,
 	SETTINGS: "/settings" as Route,
-	PROFILE: "#" as Route,
-};
+}

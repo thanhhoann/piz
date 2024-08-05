@@ -1,5 +1,5 @@
-"use client";
-import { Button } from "@components/atoms/button";
+"use client"
+import { Button } from "@components/atoms/button"
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -7,21 +7,16 @@ import {
 	DropdownMenuItem,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@components/atoms/dropdown-menu";
-import { ThemeToggle } from "@components/molecules/theme-toggle";
-import { ROUTE } from "@constants/route";
-import { cn } from "@utils/cn";
-import {
-	Archive,
-	LogOut,
-	MenuIcon,
-	SettingsIcon,
-} from "lucide-react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+} from "@components/atoms/dropdown-menu"
+import { ThemeToggle } from "@components/molecules/theme-toggle"
+import { ROUTE } from "@constants/route"
+import { cn } from "@utils/cn"
+import { Archive, LogOut, MenuIcon, SettingsIcon } from "lucide-react"
+import { useTheme } from "next-themes"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
-const iconClass = "mr-2 h-4 w-4";
+const iconClass = "mr-2 h-4 w-4"
 
 const items = [
 	{
@@ -34,30 +29,30 @@ const items = [
 		label: "Settings",
 		icon: <SettingsIcon className={iconClass} />,
 	},
-];
+]
 
 export default function HeaderBarMenu() {
-	const { theme, setTheme } = useTheme();
-	const router = useRouter();
+	const { theme, setTheme } = useTheme()
+	const router = useRouter()
 	const dropdownMenuItemClass = cn(
 		"cursor-pointer",
 		theme === "dark" ? "dark-common" : "light-common",
-	);
+	)
 
 	const handleSignOut = async () => {
 		try {
 			const response = await fetch("/api/sign-out", {
 				method: "POST",
-			});
+			})
 			if (response.ok) {
-				router.push(ROUTE.SIGN_IN);
+				router.push(ROUTE.SIGN_IN)
 			} else {
-				console.error("Failed to sign out");
+				console.error("Failed to sign out")
 			}
 		} catch (error) {
-			console.error("An error occurred during sign out", error);
+			console.error("An error occurred during sign out", error)
 		}
-	};
+	}
 
 	return (
 		<>
@@ -67,12 +62,7 @@ export default function HeaderBarMenu() {
 						<MenuIcon />
 					</Button>
 				</DropdownMenuTrigger>
-				<DropdownMenuContent
-					className={cn(
-						"w-56",
-						theme === "dark" ? "bg-black" : "bg-white",
-					)}
-				>
+				<DropdownMenuContent className="w-56">
 					<DropdownMenuGroup>
 						{items.map(({ href, icon, label }, index) => (
 							<Link key={href + index.toString()} href={href}>
@@ -105,15 +95,13 @@ export default function HeaderBarMenu() {
 						className={dropdownMenuItemClass}
 						onClick={handleSignOut}
 					>
-						{/* <SignOutButton> */}
 						<div className="flex w-full items-center">
 							<LogOut className={iconClass} />
 							<span>Log out</span>
 						</div>
-						{/* </SignOutButton> */}
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</>
-	);
+	)
 }
