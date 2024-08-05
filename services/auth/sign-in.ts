@@ -15,7 +15,7 @@ export const signIn = async (formData: FormData) => {
 
 	if (error) {
 		return redirect(
-			`${"/sign-in" as Route}?message=Could not authenticate user`,
+			`${"/sign-in" as Route}?type=signin&message=Wrong email or password`,
 		);
 	}
 

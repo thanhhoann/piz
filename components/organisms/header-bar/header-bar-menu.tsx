@@ -8,7 +8,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@components/atoms/dropdown-menu";
-import { ThemeToggle } from "@components/molecules";
+import { ThemeToggle } from "@components/molecules/theme-toggle";
 import { ROUTE } from "@constants/route";
 import { cn } from "@utils/cn";
 import {

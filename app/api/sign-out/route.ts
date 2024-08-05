@@ -2,8 +2,8 @@ import { signOut } from "@services/auth/sign-out";
 import { NextResponse } from "next/server";
 
 export async function POST() {
-	try {
-		await signOut();
+  try {
+    await signOut();
 		return NextResponse.json({
 			message: "User signed out successfully",
 		});

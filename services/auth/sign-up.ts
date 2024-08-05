@@ -11,6 +11,9 @@ export const signUp = async (formData: FormData) => {
 	const password = formData.get("password") as string;
 	const username = formData.get("username") as string;
 
+	const alreadySignedUpError =
+		"AuthApiError: User already registered";
+
 	const { error } = await supabase.auth.signUp({
 		email,
 		password,
@@ -23,9 +26,13 @@ export const signUp = async (formData: FormData) => {
 	});
 
 	if (error) {
-		return redirect(
-			`${"/sign-in" as Route}?message=Could not authenticate user`,
-		);
+		const redirectUrl = `${"/sign-in" as Route}?type=signup&message=${error.message}`;
+
+		// if (error.message === alreadySignedUpError) {
+		// 	redirectUrl = `${"/sign-in" as Route}?type=signup&message=Account is already registered.`;
+		// }
+
+		return redirect(redirectUrl);
 	}
 
 	return redirect("/" as Route);
