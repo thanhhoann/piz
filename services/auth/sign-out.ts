@@ -1,7 +1,7 @@
-import { createSupabaseClientWithCookies } from "@utils/supabase/server";
+"use server"
+import { createSupabaseClientWithCookies } from "@utils/supabase/server"
 
 export const signOut = async () => {
-	"use server";
-	const supabase = createSupabaseClientWithCookies();
-	await supabase.auth.signOut();
-};
+	const supabase = createSupabaseClientWithCookies()
+	await supabase.auth.signOut()
+}

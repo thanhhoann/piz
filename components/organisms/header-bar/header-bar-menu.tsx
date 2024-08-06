@@ -10,6 +10,7 @@ import {
 } from "@components/atoms/dropdown-menu"
 import { ThemeToggle } from "@components/molecules/theme-toggle"
 import { ROUTE } from "@constants/route"
+import { signOut } from "@services/auth/sign-out"
 import { cn } from "@utils/cn"
 import { Archive, LogOut, MenuIcon, SettingsIcon } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -41,14 +42,8 @@ export default function HeaderBarMenu() {
 
 	const handleSignOut = async () => {
 		try {
-			const response = await fetch("/api/sign-out", {
-				method: "POST",
-			})
-			if (response.ok) {
-				router.push(ROUTE.SIGN_IN)
-			} else {
-				console.error("Failed to sign out")
-			}
+			await signOut()
+			router.push(ROUTE.SIGN_IN)
 		} catch (error) {
 			console.error("An error occurred during sign out", error)
 		}

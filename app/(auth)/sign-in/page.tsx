@@ -98,16 +98,37 @@ export default function AuthPage({
 						</CardHeader>
 						<CardContent>
 							<form className="grid gap-4">
+								{/* sign up : full name */}
+								<div className="grid gap-2">
+									<Label htmlFor="first_name">First name</Label>
+									<Input
+										id="first_name"
+										type="first_name"
+										name="first_name"
+										placeholder=""
+										required
+									/>
+									<Label htmlFor="last_name">Last name</Label>
+									<Input
+										id="last_name"
+										type="last_name"
+										name="last_name"
+										placeholder=""
+										required
+									/>
+								</div>
+								{/* sign up : username */}
 								<div className="grid gap-2">
 									<Label htmlFor="username">Username</Label>
 									<Input
 										id="username"
 										type="username"
 										name="username"
-										placeholder=""
+										placeholder="What should we call you?"
 										required
 									/>
 								</div>
+								{/* sign up : email */}
 								<div className="grid gap-2">
 									<Label htmlFor="email">Email</Label>
 									<Input
@@ -118,6 +139,7 @@ export default function AuthPage({
 										required
 									/>
 								</div>
+								{/* sign up : password */}
 								<div className="grid gap-2">
 									<Label htmlFor="password">Password</Label>
 									<Input
