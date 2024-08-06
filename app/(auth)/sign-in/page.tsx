@@ -10,9 +10,10 @@ import { Input } from "@components/atoms/input"
 import { Label } from "@components/atoms/label"
 import { Tabs, TabsContent } from "@components/atoms/tabs"
 import AuthPageTabs from "@components/molecules/auth/auth-page-tabs"
-import { SubmitButton } from "@components/molecules/submit-button"
+import { SubmitButton } from "@components/molecules/button/submit-button"
 import { signIn } from "@services/auth/sign-in"
 import { signUp } from "@services/auth/sign-up"
+import { TriangleAlert } from "lucide-react"
 import Link from "next/link"
 
 // TODO: apply code splitting here
@@ -24,7 +25,7 @@ export default function AuthPage({
 	return (
 		<Tabs
 			defaultValue="sign-in"
-			className="mx-4 mt-5 flex-center flex-col"
+			className="mx-0 mt-5 min-w-[400px] flex-center flex-col"
 		>
 			<AuthPageTabs />
 			<div className="h-[80vh] w-full flex-center ">
@@ -38,7 +39,7 @@ export default function AuthPage({
 							</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<form className="grid gap-4">
+							<form className="mb-[150px] grid gap-4">
 								<div className="grid gap-2">
 									<Label htmlFor="email">Email</Label>
 									<Input
@@ -79,8 +80,11 @@ export default function AuthPage({
 							{/* message */}
 							{searchParams?.message &&
 								searchParams?.type === "signin" && (
-									<div className="mt-4 w-full rounded-md border-2 border-red-700 p-4 text-center text-foreground">
-										<p>{searchParams.message}</p>
+									<div className="mt-4 w-full p-4 text-center text-foreground">
+										<div className="flex-center gap-2 text-red-700">
+											<TriangleAlert size={18} />
+											{searchParams.message}
+										</div>
 									</div>
 								)}
 						</CardFooter>
@@ -99,23 +103,27 @@ export default function AuthPage({
 						<CardContent>
 							<form className="grid gap-4">
 								{/* sign up : full name */}
-								<div className="grid gap-2">
-									<Label htmlFor="first_name">First name</Label>
-									<Input
-										id="first_name"
-										type="first_name"
-										name="first_name"
-										placeholder=""
-										required
-									/>
-									<Label htmlFor="last_name">Last name</Label>
-									<Input
-										id="last_name"
-										type="last_name"
-										name="last_name"
-										placeholder=""
-										required
-									/>
+								<div className="grid grid-cols-2 gap-4">
+									<div className="grid gap-2">
+										<Label htmlFor="first_name">First name</Label>
+										<Input
+											id="first_name"
+											type="first_name"
+											name="first_name"
+											placeholder=""
+											required
+										/>
+									</div>
+									<div className="grid gap-2">
+										<Label htmlFor="last_name">Last name</Label>
+										<Input
+											id="last_name"
+											type="last_name"
+											name="last_name"
+											placeholder=""
+											required
+										/>
+									</div>
 								</div>
 								{/* sign up : username */}
 								<div className="grid gap-2">
@@ -124,7 +132,7 @@ export default function AuthPage({
 										id="username"
 										type="username"
 										name="username"
-										placeholder="What should we call you?"
+										placeholder=""
 										required
 									/>
 								</div>
@@ -162,8 +170,11 @@ export default function AuthPage({
 							{/* message */}
 							{searchParams?.message &&
 								searchParams?.type === "signup" && (
-									<div className="mt-4 max-w-full rounded-md border-2 border-red-700 p-4 text-center text-foreground">
-										<p>{searchParams.message}</p>
+									<div className="mt-4 w-full p-4 text-center text-foreground">
+										<div className="flex-center gap-2 text-red-700">
+											<TriangleAlert size={18} />
+											{searchParams.message}
+										</div>
 									</div>
 								)}
 						</CardFooter>

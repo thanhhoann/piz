@@ -1,31 +1,31 @@
-import HeaderBar from "@components/organisms/header-bar";
-import SideBar from "@components/organisms/side-bar";
-import { createSupabaseClientWithCookies } from "@utils/supabase/server";
-import type React from "react";
+import HeaderBar from "@components/organisms/header-bar"
+import SideBar from "@components/organisms/side-bar"
+import { createSupabaseClientWithCookies } from "@utils/supabase/server"
+import type React from "react"
 
 const AppLayout = async ({
 	children,
 }: { children: React.ReactNode }) => {
-	const supabase = createSupabaseClientWithCookies();
+	const supabase = createSupabaseClientWithCookies()
 	const {
 		data: { user },
-	} = await supabase.auth.getUser();
+	} = await supabase.auth.getUser()
 
-	if (!user) return <>{children}</>;
+	if (!user) return <>{children}</>
 
 	return (
-		<div className="flex min-h-screen w-full flex-col bg-background text-foreground transition-colors duration-300">
+		<div className="flex w-full flex-col text-foreground transition-colors duration-300">
 			<HeaderBar />
 
-			<div className="flex h-screen">
+			<div className="">
 				<SideBar />
 
-				<main className="mt-3 mobile_s:ml-0 tablet:ml-[100px] flex-1 p-4">
+				<main className="mt-3 tablet:mr-[100px] mobile_s:ml-0 tablet:ml-[200px] tablet:max-h-[60vh] flex-1 rounded-tl-2xl rounded-tr-2xl bg-background-item p-4 ">
 					{children}
 				</main>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export { AppLayout };
+export { AppLayout }

@@ -34,7 +34,7 @@ export default function RootLayout({
 			suppressHydrationWarning={true}
 			className={`${geist_sans.variable}${geist_mono.variable}`}
 		>
-			<body className="bg-background text-foreground">
+			<body className="bg-background">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
